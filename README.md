@@ -11,10 +11,10 @@
 | last_name_kana     | string | null: false |
 | birthday           | date   | null: false |
 
-# users アソシエーション 
+## users アソシエーション 
 has_many :items
 has_many :comments
-has_one  :buyers
+has_many  :buyers
 
 ## items テーブル
 
@@ -30,10 +30,10 @@ has_one  :buyers
 | ship_day_id     | integer    | null: false                     |
 | price           | integer    | null: false                     |
 
-# items アソシエーション 
+## items アソシエーション 
 belongs_to :user
 has_many   :comments
-has_one    :buyers
+has_one    :buyer
 
 ## comments テーブル
 
@@ -43,7 +43,7 @@ has_one    :buyers
 | item_id         | integer    | null: false ,foreign_key: true |
 | comment         | text       | null: false |
 
-# comments アソシエーション 
+## comments アソシエーション 
 belongs_to :user
 belongs_to :item
 
@@ -54,10 +54,10 @@ belongs_to :item
 | item_id | integer    | null: false, foreign_key: true |
 | user_id | integer    | null: false, foreign_key: true |
 
-# buyers アソシエーション 
+## buyers アソシエーション 
 belongs_to :user
 belongs_to :item
-has_one    :addresses
+has_one    :address
 
 ## addresses テーブル
 
@@ -71,5 +71,5 @@ has_one    :addresses
 | building        | string     |                               |
 | tel             | string     | null: false                   |
 
-# addresses アソシエーション 
+## addresses アソシエーション 
 belongs_to :buyer
