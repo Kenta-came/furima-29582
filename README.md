@@ -1,10 +1,7 @@
-# テーブル設計
-
 ## users テーブル
 
 | Column             | Type   | Options     |
 | ------------------ | ------ | ----------- |
-| name               | string | null: false |
 | nick_name          | string | null: false |
 | email              | string | null: false |
 | encrypted_password | string | null: false |
@@ -19,7 +16,7 @@
 | Column          | Type       | Options                         |
 | --------------- | ---------- | ------------------------------- |
 | user_id         | integer    | null: false , foreign_key: true |
-| item_name       | string     | null: false                     |
+| name            | string     | null: false                     |
 | detail          | text       | null: false                     |
 | category_id     | integer    | null: false                     |
 | condition_id    | integer    | null: false                     |
@@ -49,7 +46,7 @@
 | --------------- | ---------- | ----------------------------- |
 | buyer_id        | integer    | null: false ,foreign_key: true|
 | post_num        | string     | null: false                   |
-| pref            | string     | null: false                   |
+| ship_pref_id    | integer    | null: false                   |
 | city            | string     | null: false                   |
 | house_num       | string     | null: false                   |
 | building        | string     |                               |
