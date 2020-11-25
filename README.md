@@ -1,24 +1,56 @@
-# README
+# テーブル設計
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## users テーブル
 
-Things you may want to cover:
+| Column          | Type   | Options     |
+| --------------- | ------ | ----------- |
+| name            | string | null: false |
+| nick_name       | string | null: false |
+| email           | string | null: false |
+| password        | string | null: false |
+| first_name      | string | null: false |
+| last_name       | string | null: false |
+| first_name_kana | string | null: false |
+| last_name_kana  | string | null: false |
+| birthday        | string | null: false |
 
-* Ruby version
+## items テーブル
 
-* System dependencies
+| Column          | Type       | Options     |
+| --------------- | ---------- | ----------- |
+| user_id         | references | null: false |
+| item_name       | string     | null: false |
+| detail          | text       | null: false |
+| category        | string     | null: false |
+| condition       | string     | null: false |
+| ship_cost       | integer    | null: false |
+| ship_pref       | string     | null: false |
+| ship_day        | string     | null: false |
+| price           | integer    | null: false |
 
-* Configuration
+## comments テーブル
 
-* Database creation
+| Column          | Type       | Options           |
+| --------------- | ---------- | ----------------- |
+| user_id         | references | null: false ,foreign_key: true |
+| item_id         | string     | null: false ,foreign_key: true |
+| comment         | text       | null: false |
 
-* Database initialization
+## buyers テーブル
 
-* How to run the test suite
+| Column  | Type       | Options                        |
+| ------- | ---------- | ------------------------------ |
+| item_id | references | null: false, foreign_key: true |
+| user_id | references | null: false, foreign_key: true |
 
-* Services (job queues, cache servers, search engines, etc.)
+## addresses テーブル
 
-* Deployment instructions
-
-* ...
+| Column          | Type       | Options                       |
+| --------------- | ---------- | ----------------------------- |
+| buyer_id        | references | null: false ,foreign_key: true|
+| post_num        | integer    | null: false                   |
+| pref            | string     | null: false                   |
+| city            | string     | null: false                   |
+| house_num       | string     | null: false                   |
+| building        | string     | null: false                   |
+| tel             | integer    | null: false                   |
