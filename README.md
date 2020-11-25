@@ -16,17 +16,17 @@
 
 ## items テーブル
 
-| Column          | Type       | Options     |
-| --------------- | ---------- | ----------- |
-| user_id         | integer    | null: false |
-| item_name       | string     | null: false |
-| detail          | text       | null: false |
-| category_id     | integer    | null: false |
-| condition_id    | integer    | null: false |
-| ship_cost_id    | integer    | null: false |
-| ship_pref_id    | integer    | null: false |
-| ship_day_id     | integer    | null: false |
-| price           | integer    | null: false |
+| Column          | Type       | Options                         |
+| --------------- | ---------- | ------------------------------- |
+| user_id         | integer    | null: false , foreign_key: true |
+| item_name       | string     | null: false                     |
+| detail          | text       | null: false                     |
+| category_id     | integer    | null: false                     |
+| condition_id    | integer    | null: false                     |
+| ship_cost_id    | integer    | null: false                     |
+| ship_pref_id    | integer    | null: false                     |
+| ship_day_id     | integer    | null: false                     |
+| price           | integer    | null: false                     |
 
 ## comments テーブル
 
@@ -54,3 +54,4 @@
 | house_num       | string     | null: false                   |
 | building        | string     |                               |
 | tel             | string     | null: false                   |
+
