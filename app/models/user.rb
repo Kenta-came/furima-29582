@@ -5,12 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :items
-  
+
   with_options presence: true do
     validates :nickname
     validates :birthday
     validates :email, uniqueness:{ case_sensitive: false }
-    validates :encrypted_password, length: { minimum: 7 }
+    validates :encrypted_password
 
     with_options format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
       validates :first_name
