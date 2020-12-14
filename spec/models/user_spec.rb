@@ -29,6 +29,7 @@ RSpec.describe User, type: :model do
       it "@を含んでいないemailは登録ができない" do
         @user.email = "samplegmail.com"
         @user.valid?
+        expect(@user.errors.full_messages).to include "Email メールアドレスに「＠」を挿入してください！"
       end
 
       it "重複したemailが存在する場合登録できない" do
