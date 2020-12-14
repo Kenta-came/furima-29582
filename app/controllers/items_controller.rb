@@ -1,10 +1,10 @@
 class ItemsController < ApplicationController
 #   before_action :set_item, only: [:edit, :show, :destroy, :update]
-#   before_action :move_to_index, except: [:index, :show, :search]
+  before_action :move_to_index, except: [:index, :show, :search]
 
-#   def index
-#     @items = Item.all
-#   end
+  def index
+    
+  end
 
 #   def new
 #     @item = Item.new
@@ -28,7 +28,7 @@ class ItemsController < ApplicationController
 #   def show
 #   end
 
-#   private
+  private
 #   def item_params
 #     params.require(:item).permit(:name, :image, :text)
 #   end
@@ -37,9 +37,9 @@ class ItemsController < ApplicationController
 #     item = Item.find(params[:id])
 #   end
 
-#   def move_to_index
-#     unless user_signed_in?
-#       redirect_to action: :index
-#     end
-#   end
-# end
+  def move_to_index
+    unless user_signed_in?
+      redirect_to action: :index
+    end
+  end
+end
