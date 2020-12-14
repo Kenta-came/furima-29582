@@ -7,20 +7,20 @@ class User < ApplicationRecord
   has_many :items
 
 
+  
   with_options presence: true do
     validates :nickname
     validates :birthday
     validates :email, uniqueness:{ case_sensitive: false }
 
-    with_options format: { with:/\A[a-zA-Z0-9]+\z/ } do
+    with_options format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i ,message: '半角英数字を混合してください！'} do
       validates :password
-      validates :encrypted_password 
     end
-    with_options format: { with: /\A[ぁ-んァ-ン一-龥]/ } do
+    with_options format: { with: /\A[ぁ-んァ-ン一-龥]/ , message: '全角文字を使用してください！'} do
       validates :first_name
       validates :last_name
     end
-    with_options format: { with: /\A[ァ-ヶー－]+\z/ } do
+    with_options format: { with: /\A[ァ-ヶー－]+\z/ , message: '全角カタカナを使用してください！'} do
       validates :first_name_kana
       validates :last_name_kana
     end
