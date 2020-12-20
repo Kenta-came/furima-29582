@@ -1,4 +1,5 @@
 class Item < ApplicationRecord
+  extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
   has_one :category 
   has_one :condition
@@ -7,6 +8,7 @@ class Item < ApplicationRecord
   has_one :ship_day
   has_one_attached :image
 
+  validates :image, presence: true
   validates :content, presence: true, unless: :was_attached?
 
   def was_attached?
@@ -16,12 +18,10 @@ class Item < ApplicationRecord
   
 
 # カテゴリーの関するコード
-  extend ActiveHash::Associations::ActiveRecordExtensions
+  
   
 
-  
-
-  with_options presence: true, format:{ with: /\A[ぁ-んァ-ン一-龥]\z/, message: 'は必須内容です！'} do
+  with_options presence: true do
     validates :name
     validates :detail
   end
