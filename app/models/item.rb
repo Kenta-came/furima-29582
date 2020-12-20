@@ -8,20 +8,16 @@ class Item < ApplicationRecord
   has_one :ship_day
   has_one_attached :image
 
-  validates :image, presence: true
-  validates :content, presence: true, unless: :was_attached?
-
-  def was_attached?
-    self.image.attached?
-  end
+  
+  
 # 画像投稿のコード
   
 
 # カテゴリーの関するコード
   
   
-
-  with_options presence: true do
+  validates :image, presence: {message: 'を選択してください!'}
+  with_options presence: {message: 'を入力してください!'} do
     validates :name
     validates :detail
   end
@@ -32,5 +28,5 @@ class Item < ApplicationRecord
     validates :ship_pref_id
     validates :ship_day_id
   end
-  validates :price, presence: true, inclusion: {in: 300..9999999 }, format: {with: /[0-9]/, message: 'は¥300~¥9,999,999です！'}
+  validates :price, presence:  {message: 'を入力してください！'}, inclusion: {in: 300..9999999, message: 'を半角数字にしてください！' }, format: {with: /[0-9]/, message: 'は¥300~¥9,999,999です！'}
 end
