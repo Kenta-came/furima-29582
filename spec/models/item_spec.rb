@@ -25,27 +25,51 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Detail を入力してください!")
       end
+      it "categoryが空では登録できない" do
+        @item.category_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Category の選択を行なってください！")
+      end
       it "categoryが『1』では登録できない" do
         @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Category の選択を行なってください！")
+      end
+      it "conditionが空では登録できない" do
+        @item.condition_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Condition の選択を行なってください！")
       end
       it "conditionが『1』では登録できない" do
         @item.condition_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Condition の選択を行なってください！")
       end
+      it "ship_costが空では登録できない" do
+        @item.ship_cost_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Ship cost の選択を行なってください！")
+      end
       it "ship_costが『1』では登録できない" do
         @item.ship_cost_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Ship cost の選択を行なってください！")
+      end
+      it "ship_prefが空では登録できない" do
+        @item.ship_pref_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Ship pref の選択を行なってください！")
       end
       it "ship_prefが『1』では登録できない" do
         @item.ship_pref_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include("Ship pref の選択を行なってください！")
       end
-      
+      it "ship_dayが空では登録できない" do
+        @item.ship_day_id = ''
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Ship day の選択を行なってください！")
+      end
       it "ship_dayが『1』では登録できない" do
         @item.ship_day_id = 1
         @item.valid?
