@@ -3,11 +3,11 @@ class Item < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   belongs_to :user
-  has_one :category 
-  has_one :condition
-  has_one :ship_cost
-  has_one :ship_pref
-  has_one :ship_day
+  belongs_to :category 
+  belongs_to :condition
+  belongs_to :ship_cost
+  belongs_to :ship_pref
+  belongs_to :ship_day
   has_one_attached :image
 
   
