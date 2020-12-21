@@ -23,8 +23,7 @@ RSpec.describe Item, type: :model do
       it "detailが空では登録できない" do
         @item.detail = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Detail を入力してください!
-          ")
+        expect(@item.errors.full_messages).to include("Detail を入力してください!")
       end
       it "categoryが空では登録できない" do
         @item.category = ''
@@ -44,8 +43,7 @@ RSpec.describe Item, type: :model do
       it "ship_prefが空では登録できない" do
         @item.ship_pref = ''
         @item.valid?
-        expect(@item.errors.full_messages).to include("Ship pref の選択を行なってください！
-          ")
+        expect(@item.errors.full_messages).to include("Ship pref の選択を行なってください！")
       end
       it "ship_dayが空では登録できない" do
         @item.ship_day = ''
