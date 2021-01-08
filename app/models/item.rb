@@ -9,7 +9,7 @@ class Item < ApplicationRecord
   belongs_to :ship_pref
   belongs_to :ship_day
   has_one_attached :image
-
+  has_one :transactions
   
   
   validates :image, presence: {
