@@ -10,7 +10,7 @@ class Item < ApplicationRecord
   belongs_to :ship_day
   has_one_attached :image
   has_one :transactions
-  
+  has_one :item
   
   validates :image, presence: {
     message: 'を選択してください!'}
