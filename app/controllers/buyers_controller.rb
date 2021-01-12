@@ -1,7 +1,14 @@
 class BuyersController < ApplicationController
+  before_action :authenticate_user!
+  before_action :sold_out_item, only: [:index]
+
   def index
     @transaction = Transaction.new
     @item = Item.find(params[:item_id])
+    if @item.user == current_user
+       redirect_to root_path
+    end
+
   end
  
  
@@ -31,5 +38,10 @@ class BuyersController < ApplicationController
       currency: 'jpy'                 # 通貨の種類（日本円）
     )
   end
+
+  def sold_out_item
+    redirect_to root_path if @transaction.present?
+  end
+
 
 end
