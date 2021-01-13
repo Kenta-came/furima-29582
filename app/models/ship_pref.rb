@@ -52,5 +52,5 @@ class ShipPref < ActiveHash::Base
 
   include ActiveHash::Associations 
   has_many :items
-  has_many :transactions
+  has_many :buyers
 end

@@ -9,7 +9,6 @@ RSpec.describe Item, type: :model do
     context '商品出品登録がうまくいくとき' do
       it "nameと、detailとcategoryとconditionとship_costとship_prefとship_dayとpriceとimageが存在すれば登録できる" do
         expect(@item).to be_valid
-        
       end
     end
 
