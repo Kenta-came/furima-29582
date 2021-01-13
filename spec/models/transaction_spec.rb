@@ -13,6 +13,10 @@ RSpec.describe Transaction, type: :model do
       it "item_idとuser_idとtokenとbuyer_idとpost_numとcityとship_pref_idとhouse_numとbuildingとtelが存在すれば登録できる" do
         expect(@transaction).to be_valid
       end
+      it "buildingが空でも購入できる" do
+        @transaction.building = nil
+        expect(@transaction).to be_valid
+      end
     end
 
     context '商品購入機能がうまくいかないとき' do
@@ -55,6 +59,16 @@ RSpec.describe Transaction, type: :model do
         @transaction.tel = '0000000000'
         @transaction.valid?
         expect(@transaction.errors.full_messages).to include("Tel は11文字入力してください！")
+      end
+      it "item_idが空では登録できない" do
+        @transaction.item_id = ''
+        @transaction.valid?
+        expect(@transaction.errors.full_messages).to include("Item を入力してください！")
+      end
+      it "user_idが空では登録できない" do
+        @transaction.user_id = ''
+        @transaction.valid?
+        expect(@transaction.errors.full_messages).to include("User を入力してください！")
       end
     end
   end

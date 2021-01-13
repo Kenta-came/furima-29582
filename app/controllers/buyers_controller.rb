@@ -1,10 +1,9 @@
 class BuyersController < ApplicationController
   before_action :authenticate_user!
   before_action :sold_out_item, only: [:index]
-
+  before_action :item_params, only: [:index, :create]
   def index
     @transaction = Transaction.new
-    @item = Item.find(params[:item_id])
     if @item.user == current_user
        redirect_to root_path
     end
@@ -13,7 +12,6 @@ class BuyersController < ApplicationController
  
  
   def create
-    @item = Item.find(params[:item_id])
     @transaction = Transaction.new(transaction_params)  
      if @transaction.valid?
         pay_item
@@ -43,5 +41,7 @@ class BuyersController < ApplicationController
     redirect_to root_path if @transaction.present?
   end
 
-
+  def item_params
+    @item = Item.find(params[:item_id])
+  end
 end

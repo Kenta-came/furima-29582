@@ -3,6 +3,8 @@ class Transaction
   attr_accessor :item_id, :user_id, :buyer_id, :post_num, :ship_pref_id, :city, :house_num, :building, :tel, :token, :price
 
   with_options presence: { message: 'を入力してください！'} do
+    validates :item_id
+    validates :user_id
     validates :city
     validates :house_num
     validates :token
@@ -25,4 +27,5 @@ class Transaction
     buyer = Buyer.create(user_id: user_id, item_id: item_id)
     Address.create(post_num: post_num, ship_pref_id: ship_pref_id, city: city, house_num: house_num, building: building, tel: tel, buyer_id: buyer.id)
   end
+   
 end
