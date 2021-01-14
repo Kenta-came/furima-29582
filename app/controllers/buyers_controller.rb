@@ -3,10 +3,15 @@ class BuyersController < ApplicationController
   before_action :sold_out_item, only: [:index]
   before_action :item_params, only: [:index, :create]
   def index
-    if @item.user == current_user
-       redirect_to root_path
+    
+    if @item.user == current_user 
+      redirect_to root_path
+    else
+      @transaction = Transaction.new
     end
-    @transaction = Transaction.new
+    if @item.buyer.present?
+      redirect_to root_path
+    end
   end
  
  
