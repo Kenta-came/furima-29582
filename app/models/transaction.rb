@@ -1,6 +1,6 @@
 class Transaction
   include ActiveModel::Model
-  attr_accessor :item_id, :user_id, :buyer_id, :post_num, :ship_pref_id, :city, :house_num, :building, :tel, :token, :price
+  attr_accessor :item_id, :user_id, :buyer_id, :post_num, :ship_pref_id, :city, :house_num, :building, :tel, :token
 
   with_options presence: { message: 'を入力してください！'} do
     validates :item_id
