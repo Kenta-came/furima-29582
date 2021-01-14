@@ -9,8 +9,7 @@ class Item < ApplicationRecord
   belongs_to :ship_pref
   belongs_to :ship_day
   has_one_attached :image
-
-  
+  has_one :buyer
   
   validates :image, presence: {
     message: 'を選択してください!'}

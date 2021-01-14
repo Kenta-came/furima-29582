@@ -1,9 +1,9 @@
 class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  #アソシエーション
   has_many :items
-
+  has_many :buyers
 
   
   with_options presence: true do
